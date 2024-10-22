@@ -15,23 +15,10 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Portfolio</a>
           <ul class="dropdown">
-            <li><a href="from-the-edge.html">From the Edge</a>
-              <ul class="dropdown">
-                <li><a href="#">Keyboard</a></li>
-                <li><a href="#">Guitar</a></li>
-                <li><a href="#">Vocals</a></li>
-                <li><a href="#">Drums</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Band 2</a>
-              <ul class="dropdown">
-                <li><a href="#">Keyboard</a></li>
-                <li><a href="#">Guitar</a></li>
-                <li><a href="#">Vocals</a></li>
-                <li><a href="#">Drums</a></li>
-              </ul>
-            </li>
-            <!-- Add more bands and instruments as needed -->
+            <li><a href="from-the-edge.html">From the Edge</a></li>
+            <li><a href="band2.html">Band 2</a></li>
+            <li><a href="band3.html">Band 3</a></li>
+            <!-- Add more bands as needed -->
           </ul>
         </li>
         <li><a href="#">Clients</a></li>
@@ -40,15 +27,51 @@
     </nav>
   </header>
   <main class="main-content">
-    <section class="gallery">
-      <img src="43.JPG" alt="From the Edge Photo 1">
-      <img src="44.JPG" alt="From the Edge Photo 2">
-      <img src="images/from-the-edge3.JPG" alt="From the Edge Photo 3">
-      <!-- Add more images here -->
+    <section class="carousel">
+      <span class="arrow" onclick="prevSlide()">&#9664;</span>
+      <div id="carousel-images">
+        <img src="images/from-the-edge1.JPG" alt="From the Edge Photo 1">
+        <img src="images/from-the-edge2.JPG" alt="From the Edge Photo 2">
+        <img src="images/from-the-edge3.JPG" alt="From the Edge Photo 3">
+        <img src="images/from-the-edge4.JPG" alt="From the Edge Photo 4">
+        <img src="images/from-the-edge5.JPG" alt="From the Edge Photo 5">
+        <img src="images/from-the-edge6.JPG" alt="From the Edge Photo 6">
+        <img src="images/from-the-edge7.JPG" alt="From the Edge Photo 7">
+        <!-- Add more images here -->
+      </div>
+      <span class="arrow" onclick="nextSlide()">&#9654;</span>
     </section>
   </main>
   <footer class="footer">
     <p>&copy; 2024 Kevin Morrell Photography. All rights reserved.</p>
   </footer>
+  <script>
+    let currentSlide = 0;
+    const images = document.querySelectorAll('#carousel-images img');
+    const totalSlides = images.length;
+    const visibleSlides = 6;
+
+    function updateCarousel() {
+      images.forEach((img, index) => {
+        img.style.transform = `translateX(-${currentSlide * 100 / visibleSlides}%)`;
+      });
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - visibleSlides) {
+        currentSlide++;
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateCarousel();
+      }
+    }
+
+    updateCarousel();
+  </script>
 </body>
 </html>
