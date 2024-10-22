@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
 }
 .menu {
-  position: fixed;
+  position: center;
   top: 0;
   width: 100%;
   background: black;
