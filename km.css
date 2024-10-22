@@ -4,74 +4,68 @@ body {
 }
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #333;
-  color: #fff;
+  color: white;
 }
 .header .logo {
-  position: absolute;
-  left: 10px;
-  font-size: 1.5em;
   font-family: 'Cursive', sans-serif;
+  font-size: 1.5em;
 }
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
-  background-color: #333;
-  padding-top: 60px; /* height of the header */
-  color: white;
-}
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
+.navbar ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: flex;
 }
-.sidebar li {
+.navbar li {
   position: relative;
 }
-.sidebar a {
-  display: block;
-  padding: 10px 15px;
+.navbar a {
   text-decoration: none;
   color: white;
+  padding: 10px 15px;
+  display: block;
 }
-.sidebar a:hover {
+.navbar a:hover {
   background-color: #444;
 }
-.sidebar .dropdown {
+.dropdown {
   display: none;
   position: absolute;
-  top: 0;
-  left: 100%;
+  top: 100%;
+  left: 0;
   background-color: #333;
-  min-width: 200px;
+  min-width: 160px;
   z-index: 1000;
 }
-.sidebar li:hover > .dropdown {
+.navbar li:hover .dropdown {
   display: block;
 }
-.sidebar .dropdown .dropdown {
-  top: 0;
-  left: 100%;
+.dropdown li:hover > a {
+  background-color: #444;
 }
 .main-content {
-  margin-left: 250px;
   padding: 20px;
 }
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 10px;
+.carousel {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
-.gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
+.carousel img {
+  width: 150px;
+  margin: 0 10px;
+  transition: transform 0.5s ease;
+}
+.arrow {
+  cursor: pointer;
+  font-size: 2em;
+  margin: 0 10px;
+  user-select: none;
 }
 .footer {
   text-align: center;
@@ -80,15 +74,17 @@ body {
   color: white;
 }
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar ul {
+  .header, .navbar ul {
     flex-direction: column;
+    align-items: center;
   }
-  .main-content {
-    margin-left: 0;
+  .navbar li {
+    margin: 10px 0;
+  }
+  .dropdown {
+    position: static;
+  }
+  .navbar li:hover .dropdown {
+    display: block;
   }
 }
