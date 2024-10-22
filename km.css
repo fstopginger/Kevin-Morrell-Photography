@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+.menu .name {
+  font-family: 'Cursive', sans-serif;
+  font-size: 1.5em;
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.menu li {
+  position: relative;
+}
+.menu a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+.menu a:hover {
+  background: #444;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: black;
+  transition: opacity 0.3s ease;
+}
+.dropdown li {
+  display: block;
+}
+.menu li:hover > .dropdown {
+  display: block;
+}
+.menu .dropdown-submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: black;
+}
+.menu .dropdown li:hover > .dropdown-submenu {
+  display: block;
+}
