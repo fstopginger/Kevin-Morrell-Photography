@@ -32,7 +32,8 @@ body {
 .navbar a:hover {
   background-color: #444;
 }
-.navbar .dropdown {
+.navbar .dropdown,
+.navbar .dropdown .dropdown {
   display: none;
   position: absolute;
   top: 100%;
@@ -41,15 +42,9 @@ body {
   min-width: 160px;
   z-index: 1000;
 }
-.navbar li:hover .dropdown {
+.navbar li:hover > .dropdown,
+.navbar .dropdown li:hover > .dropdown {
   display: block;
-}
-.navbar .dropdown li {
-  position: relative;
-}
-.navbar .dropdown .dropdown {
-  top: 0;
-  left: 100%;
 }
 .main-content {
   padding: 20px;
